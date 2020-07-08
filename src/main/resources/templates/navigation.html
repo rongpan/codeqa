@@ -8,35 +8,38 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">codeqa</span>
                 </button>
                 <a class="navbar-brand" href="/">codeqa</a>
             </div>
-
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search Topic">
+                        <input type="text" class="form-control" placeholder="Search for posts">
                     </div>
                     <button type="submit" class="btn btn-default">Search</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:if="${session.user != null}">
-                        <a href="/publish">Publish</a>
+                        <a href="/publish">new question</a>
                     </li>
                     <li class="dropdown" th:if="${session.user != null}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false" th:text="${session.user.getName()}"> <span class="caret"></span></a>
+                           aria-expanded="false">
+                            <span th:text="${session.user.getName()}"></span>
+                            <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Messages</a></li>
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="/profile/questions">My posts</a></li>
                             <li><a href="#">Logout</a></li>
                         </ul>
                     </li>
                     <li th:if="${session.user == null}">
                         <a href="https://github.com/login/oauth/authorize?client_id=Iv1.6fcf47f2a229f736&redirect_uri=http://localhost:8080/callback&scope=user&state=1">Login</a>
                     </li>
+
                 </ul>
             </div>
         </div>
