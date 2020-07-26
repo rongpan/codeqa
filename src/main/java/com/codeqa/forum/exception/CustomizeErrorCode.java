@@ -7,7 +7,9 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     NO_LOGIN(2003, "login required"),
     SYS_ERROR(2004, "try again later"),
     TYPE_PARAM_WRONG(2005, "wrong type of comment"),
-    COMMENT_NOT_FOUND(2006, "comment does not exist"),;
+    COMMENT_NOT_FOUND(2006, "comment does not exist"),
+    CONTENT_IS_EMPTY(2007, "input can not be empty"),
+    ;
 
     @Override
     public String getMessage() {
